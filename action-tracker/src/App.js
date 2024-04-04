@@ -7,9 +7,10 @@ function App() {
   return (
     <>
     <div>
-      <Card />
       <TimeTrack >
       </TimeTrack>
+      <Card />
+      
     </div>
     </>
   );

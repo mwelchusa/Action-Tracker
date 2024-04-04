@@ -3,12 +3,14 @@ import weightsIcon from './weights.png'
 import TimeTrack from './TimeTrack.jsx'
 
 export const SelectedContext = createContext();
+export const ActionContext = createContext();
 
 const Tile = ( {} ) => {
   const [isSelected, setIsSelected] = useState(false);
   const [timer, setTimer] = useState(0);
   const [progress, setProgress] = useState(0);
   const [ButtonPopup, setButtonPopup] = useState(false);
+  let [actionSelected , setActionSelected] = useState("test");
 
   useEffect(() => {
     let intervalId;
@@ -23,11 +25,13 @@ const Tile = ( {} ) => {
     return () => clearInterval(intervalId);
   }, [isSelected]);
 
-  const handleTileClick = () => {
+  const handleTileClick = (e) => {
     setIsSelected(!isSelected);
-    if (!isSelected) {
+    setActionSelected(actionSelected = e.target.id);
+    console.log(actionSelected);
+    /*if (!isSelected) {
       setTimer(0); // Reset timer when tile is selected again
-    }
+    }*/
   }
 
  
@@ -37,76 +41,72 @@ const Tile = ( {} ) => {
 
   return (
     <div className="tile-container">
-      <div className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
+      <div id='workout' className={`tile ${isSelected ? 'selected' : ''}`} onClick={(e)=>handleTileClick(e)}>
+        <img id='workout'className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
+            <p id='workout' className={`tile-description ${isSelected ? 'selected' : ''}`}>Workout</p>
+        
+      </div>
+      <div id='run' className={`tile ${isSelected ? 'selected' : ''}`} onClick={(e)=>handleTileClick(e)}>
         <img className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
-            <text className={`tile-description ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>Workout</text>
-            <SelectedContext.Provider value ={setIsSelected}>
-        <TimeTrack></TimeTrack>
-      </SelectedContext.Provider>
+            <p className={`tile-description ${isSelected ? 'selected' : ''}`}>Run</p>
         
       </div>
       <div className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
         <img className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
-            <text className={`tile-description ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>Run</text>
+            <p className={`tile-description ${isSelected ? 'selected' : ''}`} >Work</p>
         
       </div>
       <div className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
         <img className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
-            <text className={`tile-description ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>Work</text>
+            <p className={`tile-description ${isSelected ? 'selected' : ''}`} >Personal</p>
         
       </div>
       <div className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
         <img className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
-            <text className={`tile-description ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>Personal</text>
+            <p className={`tile-description ${isSelected ? 'selected' : ''}`} >Study</p>
         
       </div>
       <div className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
         <img className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
-            <text className={`tile-description ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>Study</text>
+            <p className={`tile-description ${isSelected ? 'selected' : ''}`} >Baseball</p>
         
       </div>
       <div className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
         <img className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
-            <text className={`tile-description ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>Baseball</text>
+            <p className={`tile-description ${isSelected ? 'selected' : ''}`} >Dance</p>
         
       </div>
       <div className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
         <img className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
-            <text className={`tile-description ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>Dance</text>
+            <p className={`tile-description ${isSelected ? 'selected' : ''}`} >Football</p>
         
       </div>
       <div className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
         <img className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
-            <text className={`tile-description ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>Football</text>
+            <p className={`tile-description ${isSelected ? 'selected' : ''}`} >Soccer</p>
         
       </div>
       <div className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
         <img className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
-            <text className={`tile-description ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>Soccer</text>
+            <p className={`tile-description ${isSelected ? 'selected' : ''}`} >Programming</p>
         
       </div>
       <div className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
         <img className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
-            <text className={`tile-description ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>Programming</text>
+            <p className={`tile-description ${isSelected ? 'selected' : ''}`} >Sleep</p>
         
       </div>
       <div className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
         <img className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
-            <text className={`tile-description ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>Sleep</text>
+            <p className={`tile-description ${isSelected ? 'selected' : ''}`} >Meditation</p>
         
       </div>
-      <div className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
-        <img className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
-            <text className={`tile-description ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>Meditation</text>
-        
-      </div>
-      if (isSelected == True) {
-        <p>Test</p>
-
-      }
       
-      
-      
+      <ActionContext.Provider value = {actionSelected}>
+        <SelectedContext.Provider value ={isSelected} >
+          <TimeTrack></TimeTrack>
+        </SelectedContext.Provider>
+      </ActionContext.Provider>
       
       
       
