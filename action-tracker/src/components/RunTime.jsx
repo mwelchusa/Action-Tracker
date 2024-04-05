@@ -1,44 +1,44 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import './Popup.css';
-import Tile from "./Card.jsx"
 import {SelectedContext , ActionContext} from './Card.jsx';
 
 
-function TimeTrack(){
+function RunTime(){
 
     const popup = useContext(SelectedContext);
     const action = useContext(ActionContext);
-    const [workout, setWorkout] = useState();
     const [isRunning, setIsRunning] = useState(false);
-    const [elapsedTime, setElapsedTime] = useState(0);
+    const [runElapsedTime, setRunElapsedTime] = useState(0);
     const workoutIdRef = useRef(0);
     const startTimeRef = useRef(0);
-    const runTimeRef = useRef(null)
+    const runTimeRef = useRef(0)
     const runIdRef = useRef(null);
+    const [active, setActive] = useState('')
 
     useEffect(() => {
 
         if(isRunning){
-            if (action == 'workout') {
-                workoutIdRef.current = setInterval( () => {
-                    setElapsedTime(Date.now() - startTimeRef.current)
+            if (action == 'run') {
+                runIdRef.current = setInterval( () => {
+                    setRunElapsedTime(Date.now() -  runTimeRef.current)
                 } , 1000);
                 
             }
 
-            /*if (action == 'run') {
-                runIdRef.current = setInterval( () => {
-                    setElapsedTime(Date.now() - runTimeRef.current)
-                } , 1000);
-        }*/
+
         }
 
         return() => {
-            clearInterval(workoutIdRef.current);
+            clearInterval(runIdRef.current);
             
         }
 
     }, [isRunning])
+
+    useEffect(() => {
+        if (runTimeRef > 0)
+        setActive('active')
+    }, [])
 
 
     function handleActionTrack(){
@@ -47,7 +47,7 @@ function TimeTrack(){
 
     function start(){
         setIsRunning(true);
-        startTimeRef.current = Date.now() - elapsedTime;
+        runTimeRef.current = Date.now() - runElapsedTime;
         
       
     }
@@ -57,15 +57,15 @@ function TimeTrack(){
 
     }
     function reset(){
-        setElapsedTime(0);
+        setRunElapsedTime(0);
         setIsRunning(false);
 
     }
 
     function formatTime(){
-        let hours = Math.floor(elapsedTime / (1000 * 60 * 60))
-        let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
-        let seconds = Math.floor(elapsedTime / (1000) % 60)
+        let hours = Math.floor(runElapsedTime / (1000 * 60 * 60))
+        let minutes = Math.floor(runElapsedTime / (1000 * 60) % 60);
+        let seconds = Math.floor(runElapsedTime / (1000) % 60)
         //let milliseconds = Math.floor(elapsedTime % 1000)
 
         return `${hours}:${minutes}:${seconds}`;
@@ -74,7 +74,7 @@ function TimeTrack(){
     
     
     
-        if (action == 'workout') {;
+        if (action == 'run') {;
             
          return(
          <div className='popup' onChange={handleActionTrack}>
@@ -87,6 +87,7 @@ function TimeTrack(){
                         <button className ='reset' onClick={reset}>Reset</button>
                     </div>
                 </div>
+                <div className={` ${isRunning ? 'active' : ''}`}>Test</div>
                 
 
         </div>)
@@ -94,7 +95,7 @@ function TimeTrack(){
         }
 }
 
-export default TimeTrack;
+export default RunTime;
 
 
 

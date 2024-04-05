@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from 'react';
 import weightsIcon from './weights.png'
 import TimeTrack from './TimeTrack.jsx'
+import RunTime from './RunTime.jsx'
 
 export const SelectedContext = createContext();
 export const ActionContext = createContext();
@@ -47,7 +48,7 @@ const Tile = ( {} ) => {
         
       </div>
       <div id='run' className={`tile ${isSelected ? 'selected' : ''}`} onClick={(e)=>handleTileClick(e)}>
-        <img className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
+        <img id='run'className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
             <p className={`tile-description ${isSelected ? 'selected' : ''}`}>Run</p>
         
       </div>
@@ -105,6 +106,7 @@ const Tile = ( {} ) => {
       <ActionContext.Provider value = {actionSelected}>
         <SelectedContext.Provider value ={isSelected} >
           <TimeTrack></TimeTrack>
+          <RunTime></RunTime>
         </SelectedContext.Provider>
       </ActionContext.Provider>
       

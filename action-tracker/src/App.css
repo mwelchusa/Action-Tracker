@@ -99,3 +99,7 @@
     background-color: #7c6bc9; /* Lighter shade of dark purple for progress bar */
     transition: width 0.3s ease; /* Smooth transition for width changes */
   }
+
+  .active{
+    background: yellow;
+  }

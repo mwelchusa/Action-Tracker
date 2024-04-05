@@ -1,7 +1,7 @@
 .popup{
     position: fixed;
    
-    background-color: rgb(255, 255, 255);
+    background-color: #4723e7;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,6 +9,10 @@
     bottom: 2.5%;
     right: 2.5%;
     left: 2.5%;
+    border-radius: 5%;
+    box-shadow: 1px 1px 1px 12px #4723e77c;
+    transition-delay: background-color, 2s;
+    
    
 }
 
