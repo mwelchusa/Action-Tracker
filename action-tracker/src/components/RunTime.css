@@ -1,0 +1,20 @@
+.tracker .activity-description{
+    position: fixed;
+    transform: translateY(-25vh);
+    transform: translateX();
+    overflow: hidden;
+    white-space: wrap;
+    color: white;
+
+}
+
+.tracker .run-icon-page {
+    position: fixed;
+    height: 10vh;
+    padding: 5px;
+    transform: translateY(-40vh);
+    background-color: hsla(0, 0%, 95%, 0.897);
+    border-radius: 50%;
+    min-width: 50px;
+    margin-top: 10px;
+}   

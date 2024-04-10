@@ -3,6 +3,7 @@ import Card from './components/Card.jsx';
 import './App.css'
 import TimeTrack from './components/TimeTrack.jsx';
 import RunTime from './components/RunTime.jsx'
+import WorkTime from './components/WorkTime.jsx'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
     <div>
       <TimeTrack/>
       <RunTime/>
+      <WorkTime/>
       <Card />
       
     </div>

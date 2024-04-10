@@ -1,14 +1,17 @@
+
+
+
 .popup{
     position: fixed;
    
-    background-color: #4723e7;
+    background-color:#0c023afb;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 2.5%;
-    bottom: 2.5%;
-    right: 2.5%;
-    left: 2.5%;
+    top: 1.5vh;
+    bottom: 1.5vh;
+    right: 1vh;
+    left: 1vh;
     border-radius: 5%;
     box-shadow: 1px 1px 1px 12px #4723e77c;
     transition-delay: background-color, 2s;
@@ -16,15 +19,6 @@
    
 }
 
-.popup-inner {
-    position: relative;
-    padding: 32px;
-    width: 100%;
-    max-width: 640px;
-    background-color: white;
-    color: white;
-    z-index: 0;
-}
 
 
 .view-blk {
@@ -41,11 +35,15 @@
 
 .tracker .timer {
     font-size: 5rem;
+    position: fixed;
     font-family: monospace;
     font-weight: bold;
     color: red;
-    margin-bottom: 25px;
     background-color: transparent;
+    border: solid;
+    border-radius: 30rem;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .tracker{
@@ -63,21 +61,84 @@
     background-color: transparent;
 }
 
-.tracker button{
+.display button{
     
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;
     margin: 5px;
+    margin-bottom: 5vh;
     min-width: 125px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     color: grey;
     background-color:  greenyellow;
+    hyphens: auto;
+    white-space: normal;
+    font-size: 2vh;
+    font-optical-sizing:auto;
+    text-align:start
+   
+}
+.tracker button:hover{
+    
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    margin-bottom: 5vh;
+    min-width: 125px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: grey;
+    background-color:  rgb(71, 73, 68);
+    hyphens: auto;
+    white-space: normal;
+    transition-duration: 1s;
+    font-size: 2vh;
+    font-optical-sizing:auto;
+    text-align:start
    
 }
 
 .display{
+    position: fixed;
     background-color: transparent;
+    transform: translateX(50vh);
+    transform: translateY(150px);
+}
+
+.display .start {
+    
+}
+
+.weights-timer-page {
+    border-radius: 33%;
+    width: 500px;
+    margin-bottom: 60vh;
+}
+
+.exit-btn{
+    display: absolute;
+    border: solid;
+    min-width: 70px;
+    min-height:70px;
+    border-radius: 33%;
+    font-size: 3rem;
+    transform: translate(-3vh,-42vh);
+}
+
+.exit-btn:hover{
+    display: absolute;
+    border: solid;
+    min-width: 70px;
+    min-height:70px;
+    border-radius: 33%;
+    font-size: 3rem;
+    transform: translate(-3vh,-42vh);
+    background: red;
+    transition: 2s;
+    cursor: pointer;
 }

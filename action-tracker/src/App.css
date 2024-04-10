@@ -24,24 +24,10 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 33%;
-    margin-left: 5px;
+    margin-left: 0px;
     flex-wrap: wrap;
     margin-top: 50px;
     flex-shrink: 1;
-  }
-
-  .weightsIcon {
-    /* Your existing styles for the tile */
-    width: 5vw;
-    margin-top: 5px;
-    height: 5vh;
-    background-color: transparent; /* Dark purple */
-    display: flex;
-    flex-wrap: wrap;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 33%;
-    flex-shrink: 0;
   }
 
   .tile-description {
@@ -53,31 +39,15 @@
     justify-content: center;
     transform: translateX(-200%);
     transition: background-color 0.3s ease;
-
-    
   }
   
   .tile:hover {
     background-color: #4d2ae7; /* Lighter shade of dark purple */
   }
-  .tile:hover .tile-description {
-    background-color: transparent;
-  }
+
   
-  .tile.selected .tile-description {
-    background-color: transparent; /* Opaque lighter purple when selected */
-  }
-  .tile-description.selected {
-    width: 25px;
-    height: 25px;
-    background-color: #4d2ae7;
-    left: 100%;
-    margin-top: 50%;
-    display: flex;
-    justify-content: center;
-    transform: translateX(-100%);
-  }
- 
+  
+
   .tile-info {
     margin-left: 10px; /* Adjust spacing between tile and info */
   }
@@ -86,20 +56,61 @@
     font-size: 14px;
   }
   
-  .progress-bar-container {
-    width: 100px; /* Width of the progress bar container */
-    height: 20px; /* Adjust height as needed */
-    border-radius: 10px; /* Half of height to make oval/pill shape */
-    background-color: #ddd; /* Light gray background for the progress bar container */
-    overflow: hidden; /* Ensure the progress bar stays within the container */
-  }
+ 
   
-  .progress-bar {
-    height: 100%;
-    background-color: #7c6bc9; /* Lighter shade of dark purple for progress bar */
-    transition: width 0.3s ease; /* Smooth transition for width changes */
+
+
+  .weightsIcon {
+    width: 5vw;
+    margin-top: 5px;
+    height: 5vh; 
+    display: flex;
+    cursor: pointer;
+    background-color: transparent;
   }
 
-  .active{
-    background: yellow;
+
+  .tile-description{
+    font-size: 1.5rem;
+    display: flex;
+    margin: 5px;
+    position:absolute;
+    
+    min-width: 10vw;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: yellowgreen;
+    background-color:  rgba(255, 255, 255, 0);
+    border: solid;
+    border-color: black;
+    transform: translateX();
+    transform: translateY(13vh);
+    padding-bottom: 1.5%;
+    padding-top: .5%;
+    padding-left: 2%;
+    padding-right:2%;
   }
+
+  .tile-description:hover{
+    font-size: 20px;
+    display: flex;
+    margin: 5px;
+    position:fixed;
+    
+    min-width: 10vw;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: yellowgreen;
+    background-color:  white;
+    border: solid;
+    transition-timing-function: linear;
+    border-color: black;
+    transform: translateX();
+    transform: translateY(13vh);
+    padding-bottom: 1.5%;
+    padding-top: .5%;
+    transition-duration: 2s;
+  }
+

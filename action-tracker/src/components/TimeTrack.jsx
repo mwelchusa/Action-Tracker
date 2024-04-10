@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect, useRef } from 'react';
 import './Popup.css';
 import Tile from "./Card.jsx"
 import {SelectedContext , ActionContext} from './Card.jsx';
+import weightsIcon from './weights.png'
 
 
 function TimeTrack(){
@@ -25,12 +26,6 @@ function TimeTrack(){
                 } , 1000);
                 
             }
-
-            /*if (action == 'run') {
-                runIdRef.current = setInterval( () => {
-                    setElapsedTime(Date.now() - runTimeRef.current)
-                } , 1000);
-        }*/
         }
 
         return() => {
@@ -74,12 +69,13 @@ function TimeTrack(){
     
     
     
-        if (action == 'workout') {;
+        if (action == 'Workout') {;
             
          return(
          <div className='popup' onChange={handleActionTrack}>
                 <div className='tracker'>
-                    <h3>You chose {action}</h3>
+                    
+                    <img className='weights-timer-page' src={weightsIcon}></img>
                     <div className='timer'>{formatTime()} </div>
                     <div className='display'>
                         <button className='start' onClick={start}>Start</button>
@@ -97,15 +93,3 @@ function TimeTrack(){
 export default TimeTrack;
 
 
-
-
-/*return(props.trigger) ? (
-    <div className='popup'>
-            <div className='popup-inner'>
-                <button className="close-btn"> X</button>
-                { props.children }
-                <h3 className=''>My Popup</h3>
-            </div>
-
-    </div>) : "";
-*/
