@@ -1,17 +1,14 @@
-
-
-
+/*Main layer that creates "Pop up" when an action is selected by getting Element ID*/
 .popup{
-    position: fixed;
-   
     background-color:#0c023afb;
     display: flex;
+    position: fixed;
     justify-content: center;
     align-items: center;
-    top: 1.5vh;
-    bottom: 1.5vh;
-    right: 1vh;
-    left: 1vh;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
     border-radius: 5%;
     box-shadow: 1px 1px 1px 12px #4723e77c;
     transition-delay: background-color, 2s;
@@ -19,20 +16,7 @@
    
 }
 
-
-
-.view-blk {
-    position: absolute;
-    top: 5%;
-    bottom: 5;
-    right: 0;
-    left: 0;
-    z-index: 99;
-    width: 100vw;
-    height: 100vh;
-    background-color: white;
-}
-
+/*Timer Styling*/
 .tracker .timer {
     font-size: 5rem;
     position: fixed;
@@ -45,7 +29,7 @@
     padding-right: 10px;
     padding-left: 10px;
 }
-
+/*Action selected UI styling*/
 .tracker{
     
     width: 100vw;
@@ -56,14 +40,18 @@
     align-items: center;
    
 }
+
+/*Action displayed font styling*/
 .tracker h3{
     font-size:50px;
     background-color: transparent;
 }
 
+/*Timer button styles*/
 .display button{
     
-    font-size: 1.5rem;
+    font-size: max(1em, 12px);
+    
     font-weight: bold;
     padding: 10px 20px;
     margin: 5px;
@@ -76,14 +64,14 @@
     background-color:  greenyellow;
     hyphens: auto;
     white-space: normal;
-    font-size: 2vh;
-    font-optical-sizing:auto;
     text-align:start
    
 }
-.tracker button:hover{
+/*Hover timer button effects*/
+.display button:hover{
     
-    font-size: 1.5rem;
+    font-size: max(1em, 12px);
+    
     font-weight: bold;
     padding: 10px 20px;
     margin: 5px;
@@ -93,16 +81,14 @@
     border-radius: 10px;
     cursor: pointer;
     color: grey;
-    background-color:  rgb(71, 73, 68);
     hyphens: auto;
     white-space: normal;
-    transition-duration: 1s;
-    font-size: 2vh;
-    font-optical-sizing:auto;
-    text-align:start
+    text-align:start;
+    transition: .5s;
+    background-color:  #72fd00;
    
 }
-
+/*Timer buttons general UI styling*/
 .display{
     position: fixed;
     background-color: transparent;
@@ -110,26 +96,19 @@
     transform: translateY(150px);
 }
 
-.display .start {
-    
-}
 
-.weights-timer-page {
-    border-radius: 33%;
-    width: 500px;
-    margin-bottom: 60vh;
-}
-
+/*Exit button styling*/
 .exit-btn{
-    display: absolute;
+    display: fixed;
     border: solid;
     min-width: 70px;
     min-height:70px;
     border-radius: 33%;
     font-size: 3rem;
-    transform: translate(-3vh,-42vh);
+    transform: translate(-30px,-250px);
 }
 
+/*Hover Exit button styling*/
 .exit-btn:hover{
     display: absolute;
     border: solid;
@@ -137,8 +116,106 @@
     min-height:70px;
     border-radius: 33%;
     font-size: 3rem;
-    transform: translate(-3vh,-42vh);
+    transform: translate(-30px,-250px);
     background: red;
     transition: 2s;
     cursor: pointer;
 }
+
+
+@media only screen and (max-width: 680px) {
+    .popup{
+        background-color:#0c023afb;
+        display: flex;
+        position: sticky;
+        justify-content: center;
+        align-items: center;
+       max-width: 80%px;
+       min-width: 80%;
+       max-height: 800px;
+        border-radius: 5%;
+        box-shadow: 1px 1px 1px 12px #4723e77c;
+        transition-delay: background-color, 2s;
+    }
+    .display{
+        position: sticky;
+        background-color: transparent;
+        transform: translateX(50vh);
+        transform: translateY(150px);
+    }
+
+    .display button{
+        display: sticky;
+        flex-direction: column;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 10px 20px;
+        margin: 5px;
+        margin-bottom: 5vh;
+        min-width: 125px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        color: grey;
+        background-color:  greenyellow;
+        hyphens: auto;
+        white-space: normal;
+        font-size: 25px;
+        font-optical-sizing:auto;
+        text-align:start;
+        box-sizing: border-box;
+       
+    }
+
+    .start{
+        transform: translate(-135px, 115px)
+        
+    }
+    .stop {
+        transform: translate(-135px,79px);
+        margin-top: 2px;
+    }
+    .reset{
+        transform: translate(-135px,42px);
+        margin-top: 2px;
+    }
+
+    .tracker .timer {
+        font-size: 5rem;
+        position: sticky;
+        font-family: monospace;
+        font-weight: bold;
+        color: red;
+        background-color: transparent;
+        border: solid;
+        border-radius: 30rem;
+        padding-right: 10px;
+        padding-left: 10px;
+        transform: translate(30%,25%);
+    }
+    .activity-description{
+        position: fixed;
+        color: white;
+    
+    }
+    .exit-btn {
+        display: fixed;
+        border: solid;
+        min-width: 70px;
+        min-height:70px;
+        border-radius: 33%;
+        font-size: 3rem;
+        transform: translate(-60px,-250px);
+    }
+    .exit-btn:hover {
+        display: fixed;
+        border: solid;
+        min-width: 70px;
+        min-height:70px;
+        border-radius: 33%;
+        font-size: 3rem;
+        transform: translate(-60px,-250px);
+    }
+
+   
+  }

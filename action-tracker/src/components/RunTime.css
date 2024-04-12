@@ -1,7 +1,7 @@
 .tracker .activity-description{
     position: fixed;
-    transform: translateY(-25vh);
-    transform: translateX();
+    transform: translateY(-10vh);
+    margin-top: 5px;
     overflow: hidden;
     white-space: wrap;
     color: white;
@@ -9,12 +9,36 @@
 }
 
 .tracker .run-icon-page {
-    position: fixed;
-    height: 10vh;
+    position:relative;
+    height: 100px;
     padding: 5px;
-    transform: translateY(-40vh);
+    transform: translateY(-20vh);
     background-color: hsla(0, 0%, 95%, 0.897);
     border-radius: 50%;
     min-width: 50px;
-    margin-top: 10px;
+    min-height: 50px;
+    
 }   
+
+@media only screen and (max-width: 680px) {
+    .tracker .activity-description{
+        position: absolute;
+        transform: translate(50px,-7vh);
+        min-width: 250px;
+        max-width:250px;
+        font-size: 25px;
+        overflow: hidden;
+        white-space: wrap;
+        color: white;
+    
+    }
+    .tracker .work-icon-page {
+        position: sticky;
+        transform: translate(55vw,-30vh);
+        background-color: hsla(0, 0%, 95%, 0.897);
+        border-radius: 50%;
+        min-width: 50px;
+        margin-top: 10px;
+    }    
+    
+}

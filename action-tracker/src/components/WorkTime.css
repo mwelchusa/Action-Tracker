@@ -1,12 +1,43 @@
+/*.tracker .activity-description{
+    position: fixed;
+    transform: translateY(-30vh);
+    margin-top: 5px;
+    overflow: hidden;
+    white-space: wrap;
+    color: white;
+
+}*/
 
 .tracker .work-icon-page {
-    position: fixed;
-    height: 10vh;
-    transform: translateY(-40vh);
+    position:relative;
+    height: 100px;
+    padding: 5px;
+    transform: translateY(-20vh);
     background-color: hsla(0, 0%, 95%, 0.897);
     border-radius: 50%;
-    padding: 5px;
     min-width: 50px;
-    margin-top: 10px;
+    min-height: 50px;
+    
 }   
 
+@media only screen and (max-width: 680px) {
+    /*.tracker .activity-description{
+        position: sticky;
+        transform: translateY(-500vh);
+        overflow: hidden;
+        white-space: wrap;
+        color: white;
+    
+    }*/
+    
+    /*.tracker .work-icon-page {
+        position: sticky;
+        transform: translate(55vw,-30vh);
+        background-color: hsla(0, 0%, 95%, 0.897);
+        border-radius: 50%;
+        min-width: 50px;
+        margin-top: 10px;
+    }   
+    */
+    
+}

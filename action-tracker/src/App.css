@@ -1,5 +1,6 @@
 * {
-    background-color: #270f91;
+  background-color: hsl(280, 96%, 18%);
+  background-color: hsl(hue, saturation, lightness);
 }
 
 .tile-container {
@@ -7,15 +8,16 @@
     align-items: center;
     flex-wrap:wrap;
     align-items: flex-start;
+    background-color: transparent;
     align-content: flex-start;
     gap: 1em;
+    transform: translateY(10px);
   }
-  
+  /*Landing page Tiles that contain different actions*/
   .tile {
-    /* Your existing styles for the tile */
-    width: 24vw;
-    height: 24vh;
-    background-color: #4327cf; /* Dark purple */
+    width: 600px;
+    height: 300px;
+    background-color: rgb(170, 255, 0); 
     color: white;
     display: flex;
     flex-wrap: wrap;
@@ -24,93 +26,85 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 33%;
-    margin-left: 0px;
-    flex-wrap: wrap;
+    margin-left: 10px;
     margin-top: 50px;
     flex-shrink: 1;
   }
 
+  /* Landing page Button styles*/
   .tile-description {
     width: 25px;
     height: 25px;
     background-color: transparent;
-    margin-top: 25%;
     display: flex;
     justify-content: center;
-    transform: translateX(-200%);
+    
     transition: background-color 0.3s ease;
-  }
-  
-  .tile:hover {
-    background-color: #4d2ae7; /* Lighter shade of dark purple */
-  }
-
-  
-  
-
-  .tile-info {
-    margin-left: 10px; /* Adjust spacing between tile and info */
-  }
-  
-  .timer {
-    font-size: 14px;
-  }
-  
- 
-  
-
-
-  .weightsIcon {
-    width: 5vw;
-    margin-top: 5px;
-    height: 5vh; 
-    display: flex;
-    cursor: pointer;
-    background-color: transparent;
-  }
-
-
-  .tile-description{
-    font-size: 1.5rem;
-    display: flex;
+    font-size: 35px;
     margin: 5px;
     position:absolute;
-    
-    min-width: 10vw;
-    border: none;
-    border-radius: 10px;
+    min-width: 300px;
+    min-height: 50px;
+    max-width: 300px;
+    max-height: 50px;
+    border-radius: 50px;
     cursor: pointer;
     color: yellowgreen;
     background-color:  rgba(255, 255, 255, 0);
     border: solid;
     border-color: black;
-    transform: translateX();
-    transform: translateY(13vh);
-    padding-bottom: 1.5%;
-    padding-top: .5%;
-    padding-left: 2%;
-    padding-right:2%;
+    transform: translate(0,150px);
+    padding-bottom: 2.5px;
+    padding-top: 5px;
+    padding-left: 2.5px;
+    padding-right:2.5px;
+    color:Black;
+    border-width: 3px;
+    text-align: center;
+  }
+  
+  /*Hover background effect for landing page tiles*/
+  .tile:hover {
+    background-color: hsl(5, 90%, 51%);
   }
 
+/* Styles all icons on the landing page*/
+  .icon-style {
+    width: 60px;
+    margin-top: 5px;
+    height: 60px; 
+    display: flex;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+
+
+/* Hovered Landing page Button styles*/
   .tile-description:hover{
-    font-size: 20px;
+    font-size: 35px;
     display: flex;
     margin: 5px;
     position:fixed;
-    
-    min-width: 10vw;
+    min-width: 300px;
+    min-height: 50px;
+    max-width: 300px;
+    max-height: 50px;
+    border-radius: 50px;
     border: none;
-    border-radius: 10px;
+    border-radius: 50px;
     cursor: pointer;
-    color: yellowgreen;
-    background-color:  white;
+    color: rgb(0, 0, 0);
+    background-color:  rgb(170, 255, 0); ;
     border: solid;
     transition-timing-function: linear;
     border-color: black;
-    transform: translateX();
-    transform: translateY(13vh);
-    padding-bottom: 1.5%;
-    padding-top: .5%;
-    transition-duration: 2s;
+    transform: translate(0,150px);
+    padding-bottom: 2.5px;
+    padding-top: 5px;
+    padding-left: 2.5px;
+    padding-right:2.5px;
+    transition-duration: .25s;
   }
+
 

@@ -1,28 +1,28 @@
 import React, { useContext, createContext, useState, useEffect, useRef } from 'react';
-import './RunTime.css';
+import './WorkTime.css';
 import {SelectedContext , ActionContext} from './Card.jsx';
-import runIcon from '../assets/run-icon.svg';
-
+import baseballIcon from '../assets/baseball-icon.svg';
+import './Popup.css';
 
 export const exitContext = createContext(null);
 
-function RunTime(){
+function BaseballTime(){
 
     const popup = useContext(SelectedContext);
     let action = useContext(ActionContext);
-    const [isRunning, setIsRunning] = useState(false);
-    const [runElapsedTime, setRunElapsedTime] = useState(0);
-    const runTimeRef = useRef(0)
-    const runIdRef = useRef(null);
+    const [isBaseball, setIsBaseball] = useState(false);
+    const [baseballElapsedTime, setBaseballElapsedTime] = useState(0);
+    const baseballTimeRef = useRef(0)
+    const baseballIdRef = useRef(null);
     let [exit, setExit] = useState()
     
 
     useEffect(() => {
 
-        if(isRunning){
-            if (action == 'Run') {
-                runIdRef.current = setInterval( () => {
-                    setRunElapsedTime(Date.now() -  runTimeRef.current)
+        if(isBaseball){
+            if (action == 'Baseball') {
+                baseballIdRef.current = setInterval( () => {
+                    setBaseballElapsedTime(Date.now() -  baseballTimeRef.current)
                 } , 1000);
                 
             }
@@ -31,11 +31,11 @@ function RunTime(){
         }
 
         return() => {
-            clearInterval(runIdRef.current);
+            clearInterval(baseballIdRef.current);
             
         }
 
-    }, [isRunning])
+    }, [isBaseball])
 
     
 
@@ -45,26 +45,25 @@ function RunTime(){
 
 
     function start(){
-        setIsRunning(true);
-        runTimeRef.current = Date.now() - runElapsedTime;
+        setIsBaseball(true);
+        baseballTimeRef.current = Date.now() - baseballElapsedTime;
         
-      
     }
 
     function stop(){
-        setIsRunning(false);
+        setIsBaseball(false);
 
     }
     function reset(){
-        setRunElapsedTime(0);
-        setIsRunning(false);
+        setBaseballElapsedTime(0);
+        setIsBaseball(false);
 
     }
 
     function formatTime(){
-        let hours = Math.floor(runElapsedTime / (1000 * 60 * 60))
-        let minutes = Math.floor(runElapsedTime / (1000 * 60) % 60);
-        let seconds = Math.floor(runElapsedTime / (1000) % 60)
+        let hours = Math.floor(baseballElapsedTime / (1000 * 60 * 60))
+        let minutes = Math.floor(baseballElapsedTime / (1000 * 60) % 60);
+        let seconds = Math.floor(baseballElapsedTime / (1000) % 60)
         //let milliseconds = Math.floor(elapsedTime % 1000)
 
         return `${hours}:${minutes}:${seconds}`;
@@ -73,20 +72,20 @@ function RunTime(){
    function handleExit(){
     setExit(false)
     action = ''
-    setIsRunning(false);
+    setIsBaseball(false);
     
    }
 
     
     
     
-        if (action == 'Run' && exit != false) {
+        if (action == 'Baseball' && exit != false) {
             
          return(
         <>
          <div className='popup'>
                 <div className='tracker'>
-                    <img className='work-icon-page' src={runIcon}></img>
+                    <img className='work-icon-page' src={baseballIcon}></img>
                     <h3 className='activity-description'>Your current activity is: {action}</h3>
                     <div className='timer'>{formatTime()} </div>
                     <div className='display'>
@@ -108,6 +107,6 @@ function RunTime(){
        
 }
 
-export default RunTime;
+export default BaseballTime;
 
 

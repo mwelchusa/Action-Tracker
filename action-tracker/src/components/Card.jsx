@@ -1,20 +1,30 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
-import weightsIcon from '../assets/weight-icon.svg'
-import runIcon from '../assets/run-icon.svg'
-import workIcon from '../assets/work-icon.svg'
-import personIcon from '../assets/person-icon.svg'
-import studyIcon from '../assets/study-icon.svg'
-import baseballIcon from '../assets/baseball-icon.svg'
-import hikingIcon from '../assets/hiking-icon.svg'
-import footballIcon from '../assets/football-icon.svg'
-import soccerIcon from '../assets/soccer-icon.svg'
-import programmingIcon from '../assets/programming-icon.svg'
-import meditationIcon from '../assets/meditation-icon.svg'
-import restIcon from '../assets/rest-icon.svg'
-import TimeTrack from './TimeTrack.jsx'
-import RunTime from './RunTime.jsx'
-import {exitContext} from './RunTime.jsx'
-import WorkTime from './WorkTime.jsx'
+import weightsIcon from '../assets/weight-icon.svg';
+import runIcon from '../assets/run-icon.svg';
+import workIcon from '../assets/work-icon.svg';
+import personIcon from '../assets/person-icon.svg';
+import studyIcon from '../assets/study-icon.svg';
+import baseballIcon from '../assets/baseball-icon.svg';
+import hikingIcon from '../assets/hiking-icon.svg';
+import footballIcon from '../assets/football-icon.svg';
+import soccerIcon from '../assets/soccer-icon.svg';
+import programmingIcon from '../assets/programming-icon.svg';
+import meditationIcon from '../assets/meditation-icon.svg';
+import restIcon from '../assets/rest-icon.svg';
+import WorkoutTime from './WorkoutTime.jsx';
+import RunTime from './RunTime.jsx';
+import {exitContext} from './RunTime.jsx';
+import WorkTime from './WorkTime.jsx';
+import PersonalTime from './PersonalTime.jsx';
+import StudyTime from './StudyTime.jsx';
+import BaseballTime from './BaseballTime.jsx';
+import HikingTime from './HikingTime.jsx';
+import FootballTime from './FootballTime.jsx';
+import SoccerTime from './SoccerTime.jsx';
+import ProgrammingTime from './ProgrammingTime.jsx';
+import RestTime from './RestTime.jsx';
+import MeditationTime from './MeditationTime.jsx';
+
 
 
 export const SelectedContext = createContext();
@@ -27,6 +37,7 @@ const Tile = ( {} ) => {
   const [ButtonPopup, setButtonPopup] = useState(false);
   const checkExit = useContext(exitContext);
   let [actionSelected , setActionSelected] = useState("test");
+  const navMenu = document.querySelector('tile')
 //Can I use effect for SelectedContext to exit popup?
 
 
@@ -45,79 +56,93 @@ const Tile = ( {} ) => {
     }*/
   }
 
- 
+ //navMenu.addEventListener('click', ()=>{
+ // navMenu.classList.toggle("active")
+ //})
 
 
   
 
   return (
+      
     <div className="tile-container">
-      <div id='Workout' className={`tile ${isSelected ? 'selected' : ''}`} onClick={(e)=>handleTileClick(e)}>
-        <img id='Workout'className="weightsIcon" src={weightsIcon} alt="weights selector"></img>
+
+      <div id='Workout' className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
+        <img id='Workout'className="icon-style" src={weightsIcon} alt="weights selector"></img>
             <button id='Workout' className='tile-description'>Workout</button>
         
       </div>
-      <div id='Run' className={`tile ${isSelected ? 'selected' : ''}`} onClick={(e)=>handleTileClick(e)}>
-        <img id='Run'className="weightsIcon" src={runIcon} alt="weights selector"></img>
+      <div id='Run' className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
+        <img id='Run'className="icon-style" src={runIcon} alt="weights selector"></img>
             <button id='Run' className='tile-description'>Run</button>
         
       </div>
       <div id='Work' className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
-        <img id='Work' className="weightsIcon" src={workIcon} alt="weights selector"></img>
+        <img id='Work' className="icon-style" src={workIcon} alt="weights selector"></img>
             <button id='Work' className='tile-description'>Work</button>
         
       </div>
       <div id='Personal' className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
-        <img id='Personal' className="weightsIcon" src={personIcon} alt="weights selector"></img>
+        <img id='Personal' className="icon-style" src={personIcon} alt="weights selector"></img>
             <button id='Personal' className='tile-description' >Personal</button>
         
       </div>
       <div id='Study' className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
-        <img id='Study' className="weightsIcon" src={studyIcon} alt="weights selector"></img>
+        <img id='Study' className="icon-style" src={studyIcon} alt="weights selector"></img>
             <button id='Study' className='tile-description' >Study</button>
         
       </div>
       <div id='Baseball' className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
-        <img id='Baseball' className="weightsIcon" src={baseballIcon} alt="weights selector"></img>
+        <img id='Baseball' className="icon-style" src={baseballIcon} alt="weights selector"></img>
             <button id='Baseball' className='tile-description' >Baseball</button>
         
       </div>
       <div id='Hiking' className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
-        <img id='Hiking' className="weightsIcon" src={hikingIcon} alt="weights selector"></img>
+        <img id='Hiking' className="icon-style" src={hikingIcon} alt="weights selector"></img>
             <button id='Hiking' className='tile-description' >Hiking</button>
         
       </div>
       <div id='Football' className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
-        <img id='Football' className="weightsIcon" src={footballIcon} alt="weights selector"></img>
+        <img id='Football' className="icon-style" src={footballIcon} alt="weights selector"></img>
             <button id='Football' className='tile-description' >Football</button>
         
       </div>
       <div id='Soccer' className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
-        <img id='Soccer' className="weightsIcon" src={soccerIcon} alt="weights selector"></img>
+        <img id='Soccer' className="icon-style" src={soccerIcon} alt="weights selector"></img>
             <button id='Soccer' className='tile-description' >Soccer</button>
         
       </div>
       <div id='Programming' className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
-        <img id='Programming' className="weightsIcon" src={programmingIcon} alt="weights selector"></img>
+        <img id='Programming' className="icon-style" src={programmingIcon} alt="weights selector"></img>
             <button id='Programming' className='tile-description' >Programming</button>
         
       </div>
       <div id='Rest' className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
-        <img id='Rest' className="weightsIcon" src={restIcon} alt="weights selector"></img>
+        <img id='Rest' className="icon-style" src={restIcon} alt="weights selector"></img>
             <button id='Rest' className='tile-description' >Rest</button>
         
       </div>
       <div id='Meditation' className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
-        <img id='Meditation' className="weightsIcon" src={meditationIcon} alt="weights selector"></img>
+        <img id='Meditation' className="icon-style" src={meditationIcon} alt="weights selector"></img>
             <button id='Meditation' className='tile-description' >Meditation</button>
         
       </div>
       
+      
       <ActionContext.Provider value = {actionSelected}>
         <SelectedContext.Provider value ={isSelected} >
-          <TimeTrack></TimeTrack>
-          <RunTime></RunTime>
-          <WorkTime></WorkTime>
+          <WorkoutTime></WorkoutTime>
+          <RunTime/>
+          <WorkTime/>
+          <StudyTime/>
+          <BaseballTime/>
+          <HikingTime/>
+          <FootballTime/>
+          <SoccerTime/>
+          <ProgrammingTime/>
+          <RestTime/>
+          <MeditationTime/>
+          <PersonalTime></PersonalTime>
         </SelectedContext.Provider>
       </ActionContext.Provider>
       

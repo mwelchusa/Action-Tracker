@@ -1,28 +1,28 @@
 import React, { useContext, createContext, useState, useEffect, useRef } from 'react';
-import './RunTime.css';
+import './WorkTime.css';
 import {SelectedContext , ActionContext} from './Card.jsx';
-import runIcon from '../assets/run-icon.svg';
-
+import programmingIcon from '../assets/programming-icon.svg';
+import './Popup.css';
 
 export const exitContext = createContext(null);
 
-function RunTime(){
+function ProgrammingTime(){
 
     const popup = useContext(SelectedContext);
     let action = useContext(ActionContext);
-    const [isRunning, setIsRunning] = useState(false);
-    const [runElapsedTime, setRunElapsedTime] = useState(0);
-    const runTimeRef = useRef(0)
-    const runIdRef = useRef(null);
+    const [isProgramming, setIsProgramming] = useState(false);
+    const [programmingElapsedTime, setProgrammingElapsedTime] = useState(0);
+    const programmingTimeRef = useRef(0)
+    const programmingIdRef = useRef(null);
     let [exit, setExit] = useState()
     
 
     useEffect(() => {
 
-        if(isRunning){
-            if (action == 'Run') {
-                runIdRef.current = setInterval( () => {
-                    setRunElapsedTime(Date.now() -  runTimeRef.current)
+        if(isProgramming){
+            if (action == 'Programming') {
+                programmingIdRef.current = setInterval( () => {
+                    setProgrammingElapsedTime(Date.now() -  programmingTimeRef.current)
                 } , 1000);
                 
             }
@@ -31,11 +31,11 @@ function RunTime(){
         }
 
         return() => {
-            clearInterval(runIdRef.current);
+            clearInterval(programmingIdRef.current);
             
         }
 
-    }, [isRunning])
+    }, [isProgramming])
 
     
 
@@ -45,26 +45,25 @@ function RunTime(){
 
 
     function start(){
-        setIsRunning(true);
-        runTimeRef.current = Date.now() - runElapsedTime;
+        setIsProgramming(true);
+        programmingTimeRef.current = Date.now() - programmingElapsedTime;
         
-      
     }
 
     function stop(){
-        setIsRunning(false);
+        setIsProgramming(false);
 
     }
     function reset(){
-        setRunElapsedTime(0);
-        setIsRunning(false);
+        setProgrammingElapsedTime(0);
+        setIsProgramming(false);
 
     }
 
     function formatTime(){
-        let hours = Math.floor(runElapsedTime / (1000 * 60 * 60))
-        let minutes = Math.floor(runElapsedTime / (1000 * 60) % 60);
-        let seconds = Math.floor(runElapsedTime / (1000) % 60)
+        let hours = Math.floor(programmingElapsedTime / (1000 * 60 * 60))
+        let minutes = Math.floor(programmingElapsedTime / (1000 * 60) % 60);
+        let seconds = Math.floor(programmingElapsedTime / (1000) % 60)
         //let milliseconds = Math.floor(elapsedTime % 1000)
 
         return `${hours}:${minutes}:${seconds}`;
@@ -73,20 +72,20 @@ function RunTime(){
    function handleExit(){
     setExit(false)
     action = ''
-    setIsRunning(false);
+    setIsProgramming(false);
     
    }
 
     
     
     
-        if (action == 'Run' && exit != false) {
+        if (action == 'Programming' && exit != false) {
             
          return(
         <>
          <div className='popup'>
                 <div className='tracker'>
-                    <img className='work-icon-page' src={runIcon}></img>
+                    <img className='work-icon-page' src={programmingIcon}></img>
                     <h3 className='activity-description'>Your current activity is: {action}</h3>
                     <div className='timer'>{formatTime()} </div>
                     <div className='display'>
@@ -94,6 +93,7 @@ function RunTime(){
                         <button className='stop'onClick ={stop}>Stop</button>
                         <button className ='reset' onClick={reset}>Reset</button>
                     </div>
+                    
                 </div>
                 
                 <button id='exit' className='exit-btn' onClick={handleExit}>X</button>
@@ -108,6 +108,6 @@ function RunTime(){
        
 }
 
-export default RunTime;
+export default ProgrammingTime
 
 

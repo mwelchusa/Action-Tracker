@@ -1,28 +1,28 @@
 import React, { useContext, createContext, useState, useEffect, useRef } from 'react';
-import './RunTime.css';
+import './WorkTime.css';
 import {SelectedContext , ActionContext} from './Card.jsx';
-import runIcon from '../assets/run-icon.svg';
-
+import personalIcon from '../assets/person-icon.svg';
+import './Popup.css';
 
 export const exitContext = createContext(null);
 
-function RunTime(){
+function PersonalTime(){
 
     const popup = useContext(SelectedContext);
     let action = useContext(ActionContext);
-    const [isRunning, setIsRunning] = useState(false);
-    const [runElapsedTime, setRunElapsedTime] = useState(0);
-    const runTimeRef = useRef(0)
-    const runIdRef = useRef(null);
+    const [isPersonal, setIsPersonal] = useState(false);
+    const [personalElapsedTime, setPersonalElapsedTime] = useState(0);
+    const personalTimeRef = useRef(0)
+    const personalIdRef = useRef(null);
     let [exit, setExit] = useState()
     
 
     useEffect(() => {
 
-        if(isRunning){
-            if (action == 'Run') {
-                runIdRef.current = setInterval( () => {
-                    setRunElapsedTime(Date.now() -  runTimeRef.current)
+        if(isPersonal){
+            if (action == 'Personal') {
+                personalIdRef.current = setInterval( () => {
+                    setPersonalElapsedTime(Date.now() -  personalTimeRef.current)
                 } , 1000);
                 
             }
@@ -31,11 +31,11 @@ function RunTime(){
         }
 
         return() => {
-            clearInterval(runIdRef.current);
+            clearInterval(personalIdRef.current);
             
         }
 
-    }, [isRunning])
+    }, [isPersonal])
 
     
 
@@ -45,26 +45,26 @@ function RunTime(){
 
 
     function start(){
-        setIsRunning(true);
-        runTimeRef.current = Date.now() - runElapsedTime;
+        setIsPersonal(true);
+        personalTimeRef.current = Date.now() - personalElapsedTime;
         
       
     }
 
     function stop(){
-        setIsRunning(false);
+        setIsPersonal(false);
 
     }
     function reset(){
-        setRunElapsedTime(0);
-        setIsRunning(false);
+        setPersonalElapsedTime(0);
+        setIsPersonal(false);
 
     }
 
     function formatTime(){
-        let hours = Math.floor(runElapsedTime / (1000 * 60 * 60))
-        let minutes = Math.floor(runElapsedTime / (1000 * 60) % 60);
-        let seconds = Math.floor(runElapsedTime / (1000) % 60)
+        let hours = Math.floor(personalElapsedTime / (1000 * 60 * 60))
+        let minutes = Math.floor(personalElapsedTime / (1000 * 60) % 60);
+        let seconds = Math.floor(personalElapsedTime / (1000) % 60)
         //let milliseconds = Math.floor(elapsedTime % 1000)
 
         return `${hours}:${minutes}:${seconds}`;
@@ -73,20 +73,20 @@ function RunTime(){
    function handleExit(){
     setExit(false)
     action = ''
-    setIsRunning(false);
+    setIsPersonal(false);
     
    }
 
     
     
     
-        if (action == 'Run' && exit != false) {
+        if (action == 'Personal' && exit != false) {
             
          return(
         <>
          <div className='popup'>
                 <div className='tracker'>
-                    <img className='work-icon-page' src={runIcon}></img>
+                    <img className='work-icon-page' src={personalIcon}></img>
                     <h3 className='activity-description'>Your current activity is: {action}</h3>
                     <div className='timer'>{formatTime()} </div>
                     <div className='display'>
@@ -108,6 +108,6 @@ function RunTime(){
        
 }
 
-export default RunTime;
+export default PersonalTime;
 
 
