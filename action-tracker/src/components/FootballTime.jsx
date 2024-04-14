@@ -20,12 +20,11 @@ function FootballTime(){
     useEffect(() => {
 
         if(isFootball){
-            if (action == 'Football') {
-                footballIdRef.current = setInterval( () => {
-                    setFootballElapsedTime(Date.now() -  footballTimeRef.current)
-                } , 1000);
+           footballIdRef.current = setInterval( () => {
+            setFootballElapsedTime(Date.now() -  footballTimeRef.current)
+        } , 1000);
                 
-            }
+            
 
 
         }

@@ -20,14 +20,9 @@ function StudyTime(){
     useEffect(() => {
 
         if(isStudy){
-            if (action == 'Study') {
                 studyIdRef.current = setInterval( () => {
                     setStudyElapsedTime(Date.now() -  studyTimeRef.current)
                 } , 1000);
-                
-            }
-
-
         }
 
         return() => {

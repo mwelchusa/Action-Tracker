@@ -32,39 +32,32 @@ export const ActionContext = createContext();
 
 const Tile = ( {} ) => {
   const [isSelected, setIsSelected] = useState(false);
-  const [timer, setTimer] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const [ButtonPopup, setButtonPopup] = useState(false);
   const checkExit = useContext(exitContext);
-  let [actionSelected , setActionSelected] = useState("test");
-  const navMenu = document.querySelector('tile')
-//Can I use effect for SelectedContext to exit popup?
+  let [actionSelected , setActionSelected] = useState("");
+  
 
 
+//Handles closing the Action component selected by reversing isSelected and setting actionSelected to false
   useEffect( () => {
     setIsSelected(!isSelected)
     setActionSelected(actionSelected = false)
   }, [checkExit])
 
 
-
+//handles getting the Action selected by the user and passing it to the next Component
   const handleTileClick = (e) => {
     setIsSelected(!isSelected);
     setActionSelected(actionSelected = e.target.id);
-    /*if (!isSelected) {
-      setTimer(0); // Reset timer when tile is selected again
-    }*/
+  
   }
 
- //navMenu.addEventListener('click', ()=>{
- // navMenu.classList.toggle("active")
- //})
+
 
 
   
-
+/* When a tile is clicked it will update its classname based on the ID selected, this will trigger the proper component styling to appear*/
   return (
-      
+     
     <div className="tile-container">
 
       <div id='Workout' className={`tile ${isSelected ? 'selected' : ''}`} onClick={handleTileClick}>
@@ -155,15 +148,3 @@ const Tile = ( {} ) => {
 
 export default Tile;
 
-/* Timer tracking div
-<div className="tile-info">
-        <div className="timer">Time: {timer} seconds</div>
-        {isSelected && (
-          <div className="progress-bar-container">
-            <div className="progress-bar" style={{ width: `${progress}%` }}>
-              Progress: {progress}%
-            </div>
-          </div>
-        )}
-      </div>
-      */

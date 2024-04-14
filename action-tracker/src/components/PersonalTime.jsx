@@ -20,14 +20,9 @@ function PersonalTime(){
     useEffect(() => {
 
         if(isPersonal){
-            if (action == 'Personal') {
                 personalIdRef.current = setInterval( () => {
                     setPersonalElapsedTime(Date.now() -  personalTimeRef.current)
                 } , 1000);
-                
-            }
-
-
         }
 
         return() => {

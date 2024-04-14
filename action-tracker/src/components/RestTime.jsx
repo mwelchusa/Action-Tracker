@@ -20,14 +20,9 @@ function RestTime(){
     useEffect(() => {
 
         if(isRest){
-            if (action == 'Rest') {
                 restIdRef.current = setInterval( () => {
                     setRestElapsedTime(Date.now() -  restTimeRef.current)
                 } , 1000);
-                
-            }
-
-
         }
 
         return() => {

@@ -20,12 +20,11 @@ function BaseballTime(){
     useEffect(() => {
 
         if(isBaseball){
-            if (action == 'Baseball') {
-                baseballIdRef.current = setInterval( () => {
-                    setBaseballElapsedTime(Date.now() -  baseballTimeRef.current)
-                } , 1000);
+           baseballIdRef.current = setInterval( () => {
+            setBaseballElapsedTime(Date.now() -  baseballTimeRef.current)
+            } , 1000);
                 
-            }
+            
 
 
         }

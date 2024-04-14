@@ -20,14 +20,9 @@ function WorkoutTime(){
     useEffect(() => {
 
         if(isWorkout){
-            if (action == 'Workout') {
                 workoutIdRef.current = setInterval( () => {
                     setWorkoutElapsedTime(Date.now() -  workoutTimeRef.current)
                 } , 1000);
-                
-            }
-
-
         }
 
         return() => {

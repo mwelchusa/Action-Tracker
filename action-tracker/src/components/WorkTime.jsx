@@ -20,14 +20,9 @@ function WorkTime(){
     useEffect(() => {
 
         if(isWorking){
-            if (action == 'Work') {
                 workIdRef.current = setInterval( () => {
                     setWorkElapsedTime(Date.now() -  workTimeRef.current)
                 } , 1000);
-                
-            }
-
-
         }
 
         return() => {

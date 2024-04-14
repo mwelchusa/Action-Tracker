@@ -20,14 +20,9 @@ function MeditationTime(){
     useEffect(() => {
 
         if(isMeditation){
-            if (action == 'Meditation') {
                 meditationIdRef.current = setInterval( () => {
                     setMeditationElapsedTime(Date.now() -  meditationTimeRef.current)
                 } , 1000);
-                
-            }
-
-
         }
 
         return() => {

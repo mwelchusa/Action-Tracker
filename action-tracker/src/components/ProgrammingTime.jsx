@@ -20,14 +20,9 @@ function ProgrammingTime(){
     useEffect(() => {
 
         if(isProgramming){
-            if (action == 'Programming') {
                 programmingIdRef.current = setInterval( () => {
                     setProgrammingElapsedTime(Date.now() -  programmingTimeRef.current)
                 } , 1000);
-                
-            }
-
-
         }
 
         return() => {

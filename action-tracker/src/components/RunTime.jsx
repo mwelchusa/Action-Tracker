@@ -20,14 +20,9 @@ function RunTime(){
     useEffect(() => {
 
         if(isRunning){
-            if (action == 'Run') {
                 runIdRef.current = setInterval( () => {
                     setRunElapsedTime(Date.now() -  runTimeRef.current)
                 } , 1000);
-                
-            }
-
-
         }
 
         return() => {

@@ -20,13 +20,10 @@ function HikingTime(){
     useEffect(() => {
 
         if(isHiking){
-            if (action == 'Hiking') {
+            
                 hikingIdRef.current = setInterval( () => {
                     setHikingElapsedTime(Date.now() -  hikingTimeRef.current)
                 } , 1000);
-                
-            }
-
 
         }
 
