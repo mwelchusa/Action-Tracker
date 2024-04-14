@@ -1,10 +1,8 @@
-import React, { useContext, createContext, useState, useEffect, useRef } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import './RunTime.css';
 import {SelectedContext , ActionContext} from './Card.jsx';
 import runIcon from '../assets/run-icon.svg';
 
-
-export const exitContext = createContext(null);
 
 function RunTime(){
 
@@ -18,7 +16,6 @@ function RunTime(){
     
 
     useEffect(() => {
-
         if(isRunning){
                 runIdRef.current = setInterval( () => {
                     setRunElapsedTime(Date.now() -  runTimeRef.current)
@@ -72,7 +69,6 @@ function RunTime(){
     
    }
 
-    
     
     
         if (action == 'Run' && exit != false) {

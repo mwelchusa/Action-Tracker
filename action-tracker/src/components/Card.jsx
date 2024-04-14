@@ -13,7 +13,6 @@ import meditationIcon from '../assets/meditation-icon.svg';
 import restIcon from '../assets/rest-icon.svg';
 import WorkoutTime from './WorkoutTime.jsx';
 import RunTime from './RunTime.jsx';
-import {exitContext} from './RunTime.jsx';
 import WorkTime from './WorkTime.jsx';
 import PersonalTime from './PersonalTime.jsx';
 import StudyTime from './StudyTime.jsx';
@@ -32,16 +31,7 @@ export const ActionContext = createContext();
 
 const Tile = ( {} ) => {
   const [isSelected, setIsSelected] = useState(false);
-  const checkExit = useContext(exitContext);
   let [actionSelected , setActionSelected] = useState("");
-  
-
-
-//Handles closing the Action component selected by reversing isSelected and setting actionSelected to false
-  useEffect( () => {
-    setIsSelected(!isSelected)
-    setActionSelected(actionSelected = false)
-  }, [checkExit])
 
 
 //handles getting the Action selected by the user and passing it to the next Component
@@ -55,7 +45,9 @@ const Tile = ( {} ) => {
 
 
   
-/* When a tile is clicked it will update its classname based on the ID selected, this will trigger the proper component styling to appear*/
+/* When a tile is clicked it will update its classname based on the ID selected, this will trigger the proper component styling to appear
+   Passes isSelected and actionSelected values via createContext to consumer components
+*/
   return (
      
     <div className="tile-container">
